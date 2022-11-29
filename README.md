@@ -2,6 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
 
+Para rodar o projeto é necessário executar o json server que se encontra na pasta json-server.
+
+Abrir a pasta no terminal e instale o json-server -> npm install -g json-server 
+
+Dentro da pasta json-server executar o seguinte comando -> json-server --watch db.json
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
