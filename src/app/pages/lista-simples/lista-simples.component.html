@@ -1,0 +1,26 @@
+
+<p>manipulando-json works!</p>
+<div class="container">  
+    
+    <h1> User List </h1>  
+      
+    <table class="table table-striped">  
+      <thead>  
+          <tr>  
+            <th class="tdMargin">ID</th>  
+            <th class="tdMargin">Name</th>  
+            <th class="tdMargin">Email</th>  
+            <th class="tdMargin">Phone</th>  
+          </tr>  
+      </thead>  
+      <tbody>  
+        <tr *ngFor="let user of users">  
+          <td class="tdMargin">{{ user.id }}</td>  
+          <td class="tdMargin">{{ user.firstName }}</td>  
+          <td class="tdMargin">{{ user.email }}</td>  
+          <td class="tdMargin">{{ user.phone }}</td>  
+          <td class="tdMargin"><button mat-button (click)="goToDetail(user)">Ir para detalhe</button></td>
+        </tr>  
+      </tbody>  
+    </table>  
+  </div>  

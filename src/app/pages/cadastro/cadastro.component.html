@@ -1,0 +1,75 @@
+<form [formGroup]="addressForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Cadastro</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="fill">
+            <input matInput placeholder="Nome" formControlName="firstName">
+            <mat-error *ngIf="addressForm.controls['firstName'].hasError('required')">
+              O nome é <strong>obrigatório</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field>
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="pat@example.com" formControlName="email">
+            <mat-error *ngIf="addressForm.controls['email'].hasError('required')">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="fill">
+            <input matInput placeholder="Phone" formControlName="phone">
+            <mat-error *ngIf="addressForm.controls['phone'].hasError('required')">
+              Telefone é <strong>obrigatório</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="fill">
+            <input matInput placeholder="Senha" type="password" formControlName="password">
+            <mat-error *ngIf="addressForm.controls['password'].hasError('required')">
+              Senha é <strong>obrigatório</strong>!
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="fill">
+            <input matInput placeholder="CPF" mask="000.000.000-00" formControlName="cpf">
+            <mat-error *ngIf="addressForm.controls['cpf'].hasError('required')">
+              CPF é <strong>obrigatório</strong>
+            </mat-error>
+            <mat-error *ngIf="addressForm.controls['cpf'].getError('cpfNotValid')">
+              CPF não é <strong>Valido</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>      
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" [disabled]="!addressForm.valid" type="submit">Cadastrar</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
